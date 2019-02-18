@@ -1,4 +1,3 @@
---First commit
 CREATE EXTENSION pgcrypto; --Allows PostgreSQL to understand UUIDs. Only have to create the extension once for a database.
 
 --DROP TABLE product;
@@ -11,6 +10,20 @@ CREATE TABLE product (
   CONSTRAINT product_pkey PRIMARY KEY (id)
 ) WITH (
   OIDS=FALSE
+);
+
+--Employee TABLE
+
+CREATE TABLE employee (
+	Record_ID uuid NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+	First_Name character varying(32) NOT NULL DEFAULT (''),
+	Last_Name character varying(32) NOT NULL DEFAULT (''),
+	Employee_ID VARCHAR(5) NOT NULL UNIQUE,
+	Active character varying(32) NOT NULL DEFAULT ('Yes'),
+	Title character varying(32) NOT NULL DEFAULT (''),
+	Manager character varying(32) DEFAULT (''),
+	Password VARCHAR(16) NOT NULL, 
+	Created timestamp without time zone NOT NULL DEFAULT now()
 );
 
 --DROP INDEX ix_product_lookupcode;
