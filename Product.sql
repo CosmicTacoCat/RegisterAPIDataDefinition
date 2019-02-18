@@ -1,3 +1,4 @@
+--First commit
 CREATE EXTENSION pgcrypto; --Allows PostgreSQL to understand UUIDs. Only have to create the extension once for a database.
 
 --DROP TABLE product;
